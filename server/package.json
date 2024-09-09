@@ -3,6 +3,7 @@
     "body-parser": "^1.20.2",
     "concurrently": "^8.2.2",
     "cookie-session": "^2.1.0",
+    "cors": "^2.8.5",
     "debug": "^4.3.4",
     "express": "^4.18.3",
     "joi": "^17.12.2",
@@ -29,7 +30,6 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
