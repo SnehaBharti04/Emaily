@@ -1,6 +1,6 @@
-const sendgrid = require("sendgrid");
+const sendgrid = require('sendgrid');
 const helper = sendgrid.mail;
-const keys = require("../config/keys");
+const keys = require('../config/keys');
 
 class Mailer extends helper.Mail {
   constructor({ subject, recipients }, content) {
@@ -9,7 +9,7 @@ class Mailer extends helper.Mail {
     this.sgApi = sendgrid(keys.sendGridKey);
     this.from_email = new helper.Email("anshsneha6223@gmail.com");
     this.subject = subject;
-    this.body = new helper.Content("text/html", content);
+    this.body = new helper.Content('text/html', content);
     this.recipients = this.formatAddresses(recipients);
 
     this.addContent(this.body);
@@ -25,7 +25,8 @@ class Mailer extends helper.Mail {
 
   addClickTracking() {
     const trackingSettings = new helper.TrackingSettings();
-    const clickTracking = new helper.ClickTracking(false, false);
+    const clickTracking = new helper.ClickTracking(true, true);
+
     trackingSettings.setClickTracking(clickTracking);
     this.addTrackingSettings(trackingSettings);
   }
@@ -41,22 +42,13 @@ class Mailer extends helper.Mail {
 
   async send() {
     const request = this.sgApi.emptyRequest({
-      method: "POST",
-      path: "/v3/mail/send",
+      method: 'POST',
+      path: '/v3/mail/send',
       body: this.toJSON(),
     });
 
-    try {
-      const response = await this.sgApi.API(request);
-      console.log("Email sent successfully:", response);
-      return response;
-    } catch (error) {
-      console.error(
-        "Error sending email:",
-        error.response ? error.response.body : error
-      );
-      throw error;
-    }
+    const response = await this.sgApi.API(request);
+    return response;
   }
 }
 
