@@ -1,5 +1,6 @@
 import { FETCH_USER } from '../actions/types';
-function authReducer(state = null, action) {
+
+export default function(state = null, action) {
   switch (action.type) {
     case FETCH_USER:
       return action.payload || false;
@@ -7,5 +8,3 @@ function authReducer(state = null, action) {
       return state;
   }
 }
-
-export default authReducer;

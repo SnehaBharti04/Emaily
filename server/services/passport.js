@@ -36,11 +36,3 @@ passport.use(
     }
   )
 );
-
-// const fetchAlbums = async () =>{
-//    const res = await  fetch("https://jsonplaceholder.typicode.com/todos");
-//    const json = await res.json()
-//    console.log("🚀 ~ fetchAlbums ~ json:", json)
-// }
-
-// fetchAlbums()
