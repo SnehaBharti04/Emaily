@@ -15,7 +15,6 @@
     "passport-google-oauth20": "^2.0.0",
     "path-parser": "^6.1.0",
     "pug": "^3.0.2",
-    "redux-form": "^8.3.10",
     "save": "^2.9.0",
     "sendgrid": "^5.2.3",
     "stripe": "^16.9.0"
